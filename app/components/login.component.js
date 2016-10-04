@@ -11,12 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var LoginComponent = (function () {
     function LoginComponent() {
-        this.mensagem = "";
-        this.error = false;
     }
-    LoginComponent.prototype.enviar = function () {
-        this.error = false;
-    };
     LoginComponent = __decorate([
         core_1.Component({
             templateUrl: './views/login.html'

@@ -11,12 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var HeaderComponent = (function () {
     function HeaderComponent() {
-        this.mensagem = "";
-        this.error = false;
+        this.title = 'Tour of Heroes 2';
+        this.subtitle = 'Windstorm';
     }
-    HeaderComponent.prototype.enviar = function () {
-        this.error = false;
-    };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'my-header',
