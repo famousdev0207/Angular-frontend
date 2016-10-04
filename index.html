@@ -1,0 +1,53 @@
+<html lang="pt-BR">
+<head>
+    <base href="/">
+    <title>Angular QuickStart</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/base.min.css">
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/moment.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/bootstrap3-typeahead.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/bootstrap-select.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/pt-br.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/js/base.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function(err){ console.error(err); });
+    </script>
+</head>
+<!-- 3. Display the application -->
+<body>
+    <my-header></my-header>
+    <my-menu></my-menu>
+    <div class="container">
+        <my-app>
+            <div class="col-md-4 col-md-offset-4">
+                <i class="fa fa-spinner fa-spin fa-3x fa-align-center"></i>
+                <span>Carregando</span>
+            </div>
+        </my-app>
+    </div>
+    <my-footer></my-footer>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+</body>
+</html>

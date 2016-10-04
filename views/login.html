@@ -1,0 +1,54 @@
+
+<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+	<div class="panel panel-default">
+		<div class="panel-heading"><i class="fa fa-lock fa-lg"></i> Área Restrita</div>
+		<div class="panel-body">
+			<div class="alert-container"></div>
+			<form class="form-horizontal" method="post" role="form" id="formLogin">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Login:</label>
+
+					<div class="col-sm-10">
+						<input name="login" id="user" type="text" maxlength="200" value="" class="form-control" placeholder="Digite seu login">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Senha:</label>
+
+					<div class="col-sm-10">
+						<input name="senha" id="pass" type="password" maxlength="200" class="form-control" placeholder="Digite sua senha">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-10">
+						<input class="btn btn-default" id="btLogin" type="submit" value="Enviar" style="width:80px;"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-10">
+						<a href="javascript:void(0);" onclick="modalPass();" data-toggle="modal" data-target="#myModal"><i class="fa fa-info-circle"></i> Esqueceu a senha?</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<form class="form hidden" method="post" id="formRecupSenha">
+	<div class="form-group">
+		<label class="control-label">Login<span class="text-danger">*</span></label>
+		<input name="login" id="login" type="text" placeholder="Digite seu usuário" size="35" maxlength="200" class="form-control"/>
+	</div>
+	<div class="form-group">
+		<label class="control-label">E-mail<span class="text-danger">*</span></label>
+		<input name="email" id="email" placeholder="Informe seu e-mail" type="text" size="35" maxlength="200" class="form-control"/>
+	</div>
+	<div class="form-group">
+		<label class="control-label">CPF<span class="text-danger">*</span></label>
+		<input name="cpf" id="cpf" placeholder="Informe seu CPF" type="text" size="20" maxlength="14" class="form-control"/>
+	</div>
+</form>
