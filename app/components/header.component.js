@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var HeaderComponent = (function () {
     function HeaderComponent() {
-        this.title = 'Tour of Heroes 2';
+        this.title = 'Tour of Heroes';
         this.subtitle = 'Windstorm';
     }
     HeaderComponent = __decorate([

@@ -4,6 +4,6 @@ import { Component} from '@angular/core';
     templateUrl: './templates/header.html'
 })
 export class HeaderComponent {
-    title = 'Tour of Heroes 2';
+    title = 'Tour of Heroes';
     subtitle = 'Windstorm';
 }
