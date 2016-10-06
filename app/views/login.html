@@ -2,7 +2,11 @@
 	<div class="panel panel-default">
 		<div class="panel-heading"><i class="fa fa-lock fa-lg"></i> Área Restrita</div>
 		<div class="panel-body">
-			<div class="alert-container"></div>
+			<div class="alert-container">
+				<div class="alert alert-danger" role="alert" *ngIf="_erro">
+					{{debug()}}
+				</div>
+			</div>
 			<form class="form-horizontal" method="post" role="form" id="formLogin">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Login:</label>

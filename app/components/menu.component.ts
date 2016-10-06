@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 @Component({
     selector: 'my-menu',
-    templateUrl: './templates/menu.html'
+    templateUrl: './app/templates/menu.html'
 })
 export class MenuComponent {
     mensagem :String = "";

@@ -9,12 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var usuario_1 = require('../model/usuario');
 var LoginComponent = (function () {
     function LoginComponent() {
+        this._sucesso = false;
+        this._erro = false;
+        this.usuario = new usuario_1.Usuario();
     }
+    LoginComponent.prototype.debug = function () {
+        if (this._erro) {
+            this._mensagem = 'Erro no formulario';
+        }
+        return JSON.stringify(this._mensagem);
+    };
     LoginComponent = __decorate([
         core_1.Component({
-            templateUrl: './views/login.html'
+            templateUrl: './app/views/login.html'
         }), 
         __metadata('design:paramtypes', [])
     ], LoginComponent);

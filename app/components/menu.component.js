@@ -20,7 +20,7 @@ var MenuComponent = (function () {
     MenuComponent = __decorate([
         core_1.Component({
             selector: 'my-menu',
-            templateUrl: './templates/menu.html'
+            templateUrl: './app/templates/menu.html'
         }), 
         __metadata('design:paramtypes', [])
     ], MenuComponent);

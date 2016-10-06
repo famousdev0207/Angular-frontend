@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 @Component({
     selector: 'my-footer',
-    templateUrl: './templates/footer.html'
+    templateUrl: './app/templates/footer.html'
 })
 export class FooterComponent {
     mensagem :String = "";
