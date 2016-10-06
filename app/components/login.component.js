@@ -14,13 +14,22 @@ var LoginComponent = (function () {
     function LoginComponent() {
         this._sucesso = false;
         this._erro = false;
+        this._mensagem = "";
         this.usuario = new usuario_1.Usuario();
     }
-    LoginComponent.prototype.debug = function () {
-        if (this._erro) {
-            this._mensagem = 'Erro no formulario';
+    LoginComponent.prototype.debug = function (mensagem) {
+        return JSON.stringify(mensagem);
+    };
+    LoginComponent.prototype.enviar = function () {
+        this._sucesso = true;
+        if (this._sucesso) {
+            this._mensagem = 'Formulario enviado. ' + this.usuario.login;
         }
-        return JSON.stringify(this._mensagem);
+        else {
+            this._erro = true;
+            this._mensagem = 'Erro formulário';
+        }
+        this.debug(this._mensagem);
     };
     LoginComponent = __decorate([
         core_1.Component({
