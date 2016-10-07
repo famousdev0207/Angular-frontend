@@ -2,8 +2,8 @@
 	<div class="panel panel-default">
 		<div class="panel-heading"><i class="fa fa-lock fa-lg"></i> Área Restrita</div>
 		<div class="panel-body">
-			<div class="alert-container">
-				<div class="alert {{tipoaleta}}" role="alert" *ngIf="_erro || _sucesso">
+			<div class="alert-container" *ngIf="_erro || _sucesso">
+				<div class="alert {{tipoaleta}}" role="alert">
 					{{debug()}}
 				</div>
 			</div>
