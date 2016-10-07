@@ -15,21 +15,21 @@ var LoginComponent = (function () {
         this._sucesso = false;
         this._erro = false;
         this._mensagem = "";
+        this.tipoaleta = "";
         this.usuario = new usuario_1.Usuario();
     }
-    LoginComponent.prototype.debug = function (mensagem) {
-        return JSON.stringify(mensagem);
+    LoginComponent.prototype.debug = function () {
+        return this._mensagem;
     };
     LoginComponent.prototype.enviar = function () {
-        this._sucesso = true;
-        if (this._sucesso) {
-            this._mensagem = 'Formulario enviado. ' + this.usuario.login;
-        }
-        else {
+        this._mensagem = 'Formulario enviado. ' + this.usuario.login;
+        this.tipoaleta = "alert-success";
+        if (this.usuario.login != 'nagpaulo') {
             this._erro = true;
-            this._mensagem = 'Erro formulário';
+            this.tipoaleta = "alert-danger";
+            this._mensagem = 'Usuario ou Senha inválida.';
         }
-        this.debug(this._mensagem);
+        this.debug();
     };
     LoginComponent = __decorate([
         core_1.Component({

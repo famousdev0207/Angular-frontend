@@ -98,3 +98,6 @@ table thead th, table thead{border-bottom: 2px solid #999; background: #fff; tex
 
 .loadingTable { float: right; }
 #painelDetalhe { padding-top: 30px; }
+
+.ng-valid[required], .ng-valid.required  { border-left: 5px solid #42A948; /* green */ }
+.ng-invalid:not(form)  { border-left: 5px solid #a94442; /* red */ }
