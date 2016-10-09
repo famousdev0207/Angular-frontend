@@ -11,7 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
+        this._isLogado = true;
     }
+    Object.defineProperty(AppComponent.prototype, "isLogado", {
+        get: function () {
+            return this._isLogado;
+        },
+        set: function (value) {
+            this._isLogado = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
