@@ -15,7 +15,7 @@ var http_1 = require('@angular/http');
 var app_component_1 = require('./components/app.component');
 var header_component_1 = require('./components/header.component');
 var menu_component_1 = require('./components/menu.component');
-var login_component_1 = require('./components/login.component');
+var login_component_1 = require('./components/login/login.component');
 var footer_component_1 = require('./components/footer.component');
 var app_routing_1 = require('./app.routing');
 // used to create fake backend

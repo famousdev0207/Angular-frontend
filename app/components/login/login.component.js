@@ -9,33 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var usuario_1 = require('../model/usuario');
+var router_1 = require('@angular/router');
+var index_1 = require('../../services/index');
 var LoginComponent = (function () {
-    function LoginComponent() {
-        this._sucesso = false;
-        this._erro = false;
-        this._mensagem = "";
-        this.tipoaleta = "";
-        this.usuario = new usuario_1.Usuario();
+    function LoginComponent(router, authenticationService, alertService) {
+        this.router = router;
+        this.authenticationService = authenticationService;
+        this.alertService = alertService;
+        this.model = {};
+        this.loading = false;
     }
-    LoginComponent.prototype.debug = function () {
-        return this._mensagem;
+    LoginComponent.prototype.ngOnInit = function () {
+        // reset login status
+        this.authenticationService.logout();
     };
-    LoginComponent.prototype.enviar = function () {
-        this._mensagem = 'Formulario enviado. ' + this.usuario.login;
-        this.tipoaleta = "alert-success";
-        if (this.usuario.login != 'nagpaulo') {
-            this._erro = true;
-            this.tipoaleta = "alert-danger";
-            this._mensagem = 'Usuario ou Senha inválida.';
-        }
-        this.debug();
+    LoginComponent.prototype.login = function () {
+        var _this = this;
+        this.loading = true;
+        this.authenticationService.login(this.model.username, this.model.password)
+            .subscribe(function (data) {
+            _this.router.navigate(['/']);
+        }, function (error) {
+            _this.alertService.error(error);
+            _this.loading = false;
+        });
     };
     LoginComponent = __decorate([
         core_1.Component({
-            templateUrl: './app/views/login.html'
+            moduleId: module.id,
+            templateUrl: '../../views/login.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, index_1.AuthenticationService, index_1.AlertService])
     ], LoginComponent);
     return LoginComponent;
 }());

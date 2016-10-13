@@ -35,7 +35,7 @@ exports.fakeBackendProvider = {
                     }
                     else {
                         // else return 400 bad request
-                        connection.mockError(new Error('Username or password is incorrect'));
+                        connection.mockError(new Error('Usuario ou Senha Inválida.'));
                     }
                 }
                 // get users
