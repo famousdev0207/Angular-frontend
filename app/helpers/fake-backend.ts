@@ -1,7 +1,15 @@
 ﻿import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
+import { AlertService, UserService } from '../services/index';
+import { User } from '../models/user';
 
 export let fakeBackendProvider = {
+
+    constructor(
+      private userService: UserService,
+      private user: User = new User()
+    ) { }
+
     // use fake backend in place of Http service for backend-less development
     provide: Http,
     useFactory: (backend, options) => {
