@@ -17,6 +17,7 @@ var header_component_1 = require('./components/header.component');
 var menu_component_1 = require('./components/menu.component');
 var login_component_1 = require('./components/login/login.component');
 var footer_component_1 = require('./components/footer.component');
+var home_component_1 = require('./components/home/home.component');
 var app_routing_1 = require('./app.routing');
 // used to create fake backend
 var index_1 = require('./helpers/index');
@@ -42,7 +43,8 @@ var AppModule = (function () {
                 header_component_1.HeaderComponent,
                 menu_component_1.MenuComponent,
                 footer_component_1.FooterComponent,
-                index_2.AlertComponent
+                index_2.AlertComponent,
+                home_component_1.HomeComponent
             ],
             providers: [
                 app_routing_1.appRoutingProviders,

@@ -8,6 +8,7 @@ import { HeaderComponent }   from './components/header.component';
 import { MenuComponent }   from './components/menu.component';
 import { LoginComponent }   from './components/login/login.component';
 import { FooterComponent }   from './components/footer.component';
+import { HomeComponent }   from './components/home/home.component';
 import { routing, appRoutingProviders }  from './app.routing';
 
 // used to create fake backend
@@ -33,7 +34,8 @@ import { AlertService, AuthenticationService, UserService } from './services/ind
         HeaderComponent,
         MenuComponent,
         FooterComponent,
-        AlertComponent
+        AlertComponent,
+        HomeComponent
     ],
     providers: 	  [
         appRoutingProviders,
