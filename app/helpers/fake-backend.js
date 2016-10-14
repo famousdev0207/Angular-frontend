@@ -1,11 +1,7 @@
 "use strict";
 var http_1 = require('@angular/http');
 var testing_1 = require('@angular/http/testing');
-var user_1 = require('../models/user');
 exports.fakeBackendProvider = {
-    constructor: function (userService, user) {
-        if (user === void 0) { user = new user_1.User(); }
-    },
     // use fake backend in place of Http service for backend-less development
     provide: http_1.Http,
     useFactory: function (backend, options) {

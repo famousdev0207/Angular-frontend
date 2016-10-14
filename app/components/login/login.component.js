@@ -12,16 +12,26 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('../../services/index');
 var LoginComponent = (function () {
-    function LoginComponent(router, authenticationService, alertService) {
+    function LoginComponent(router, authenticationService, alertService, userService) {
         this.router = router;
         this.authenticationService = authenticationService;
         this.alertService = alertService;
+        this.userService = userService;
         this.model = {};
+        this.usuario = {};
         this.loading = false;
+        this.register();
     }
     LoginComponent.prototype.ngOnInit = function () {
         // reset login status
         this.authenticationService.logout();
+    };
+    LoginComponent.prototype.register = function () {
+        this.usuario.username = "nagpaulo";
+        this.usuario.password = "123456";
+        this.usuario.firstName = "Paulo";
+        this.usuario.lastName = "Mesquita";
+        this.userService.create(this.usuario);
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
@@ -39,7 +49,7 @@ var LoginComponent = (function () {
             moduleId: module.id,
             templateUrl: '../../views/login.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, index_1.AuthenticationService, index_1.AlertService])
+        __metadata('design:paramtypes', [router_1.Router, index_1.AuthenticationService, index_1.AlertService, index_1.UserService])
     ], LoginComponent);
     return LoginComponent;
 }());

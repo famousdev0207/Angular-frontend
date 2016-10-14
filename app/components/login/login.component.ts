@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertService, AuthenticationService } from '../../services/index';
+import { AlertService, AuthenticationService, UserService } from '../../services/index';
 
 @Component({
     moduleId: module.id,
@@ -10,16 +10,27 @@ import { AlertService, AuthenticationService } from '../../services/index';
 
 export class LoginComponent implements OnInit {
     model: any = {};
+    usuario: any = {};
     loading = false;
 
     constructor(
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,
+        private userService: UserService
+    ) { this.register(); }
 
     ngOnInit() {
         // reset login status
         this.authenticationService.logout();
+    }
+
+    register() {
+        this.usuario.username = "nagpaulo";
+        this.usuario.password = "123456";
+        this.usuario.firstName = "Paulo";
+        this.usuario.lastName = "Mesquita";
+        this.userService.create(this.usuario);
     }
 
     login() {
