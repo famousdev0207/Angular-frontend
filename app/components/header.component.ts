@@ -3,7 +3,8 @@ import { Component} from '@angular/core';
     selector: 'my-header',
     templateUrl: './app/templates/header.html'
 })
+
 export class HeaderComponent {
-    title = 'Tour of Heroes';
-    subtitle = 'Windstorm';
+    private title:string = 'Tour of Heroes';
+    private subtitle:string = 'Windstorm';
 }

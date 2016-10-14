@@ -11,12 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var MenuComponent = (function () {
     function MenuComponent() {
-        this.mensagem = "";
-        this.error = false;
     }
-    MenuComponent.prototype.enviar = function () {
-        this.error = false;
-    };
     MenuComponent = __decorate([
         core_1.Component({
             selector: 'my-menu',

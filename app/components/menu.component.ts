@@ -1,13 +1,9 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
 @Component({
     selector: 'my-menu',
     templateUrl: './app/templates/menu.html'
 })
-export class MenuComponent {
-    mensagem :String = "";
-    error: boolean = false;
+export class MenuComponent implements OnInit {
 
-    enviar(): void {
-        this.error = false;
-    }
 }

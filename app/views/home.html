@@ -1,12 +1,7 @@
-﻿<div class="col-md-6 col-md-offset-3">
-    <h1>Hi {{currentUser.firstName}}!</h1>
-    <p>You're logged in with Angular 2!!</p>
-    <h3>All registered users:</h3>
-    <ul>
-        <li *ngFor="let user of users">
-            {{user.username}} ({{user.firstName}} {{user.lastName}})
-            - <a (click)="deleteUser(user.id)">Delete</a>
-        </li>
-    </ul>
+﻿<div class="col-md-6 col-md-offset-3 text-center bem-vindo">
+    <h2><i class="fa fa-smile-o"></i> Seja bem-vindo!</h2>
+    <p class="text-center">
+        Esta é sua área administrativa, através dela, você poderá acessar facilmente todos os recursos do sistema.
+    </p>
     <p><a [routerLink]="['/login']">Logout</a></p>
 </div>

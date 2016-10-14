@@ -9,16 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var index_1 = require('../services/index');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(userService) {
+        this.userService = userService;
+        this.users = [];
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.loadAllUsers();
+    };
+    AppComponent.prototype.loadAllUsers = function () {
+        var _this = this;
+        this.userService.getAll().subscribe(function (users) { _this.users = users; });
+    };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
             template: '<router-outlet></router-outlet>'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.UserService])
     ], AppComponent);
     return AppComponent;
 }());
