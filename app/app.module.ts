@@ -19,7 +19,7 @@ import { BaseRequestOptions } from '@angular/http';
 
 import { AlertComponent } from './directives/index';
 import { AuthGuard } from './guards/index';
-import { AlertService, AuthenticationService, UserService } from './services/index';
+import { AlertService, AuthenticationService, UserService, SessionService } from './services/index';
 
 @NgModule({
     imports:      [
@@ -43,6 +43,7 @@ import { AlertService, AuthenticationService, UserService } from './services/ind
         AlertService,
         AuthenticationService,
         UserService,
+        SessionService,
 
         // providers used to create fake backend
         fakeBackendProvider,

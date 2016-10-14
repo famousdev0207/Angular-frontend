@@ -8,19 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Created by Paulo Roberto on 14/10/2016.
+ */
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var SessionService = (function () {
+    function SessionService() {
+        this._status = false;
+        console.log("New SessionService");
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            template: '<router-outlet></router-outlet>'
-        }), 
+    SessionService.prototype.isLoggedIn = function () {
+        return this._status;
+    };
+    SessionService.prototype.setInitSession = function () {
+        this._status = true;
+    };
+    SessionService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SessionService);
+    return SessionService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SessionService = SessionService;
+//# sourceMappingURL=session.service.js.map

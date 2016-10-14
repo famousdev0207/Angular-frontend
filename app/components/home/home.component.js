@@ -12,15 +12,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Paulo Roberto on 09/10/2016.
  */
 var core_1 = require('@angular/core');
+var index_1 = require('../../services/index');
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(userService) {
+        this.userService = userService;
+        this.users = [];
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
+    HomeComponent.prototype.ngOnInit = function () {
+        this.loadAllUsers();
+    };
+    HomeComponent.prototype.deleteUser = function (id) {
+        var _this = this;
+        this.userService.delete(id).subscribe(function () { _this.loadAllUsers(); });
+    };
+    HomeComponent.prototype.loadAllUsers = function () {
+        var _this = this;
+        this.userService.getAll().subscribe(function (users) { _this.users = users; });
+    };
     HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             templateUrl: '../../views/home.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.UserService])
     ], HomeComponent);
     return HomeComponent;
 }());
