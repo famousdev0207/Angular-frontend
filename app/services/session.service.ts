@@ -14,11 +14,11 @@ export class SessionService {
     return localStorage.getItem('initSession');
   }
 
-  setInitSession(parm:boolean){
+  setInitSession(parm){
     localStorage.setItem('initSession', parm);
   }
 
-  setSession(name:string,obj:object){
+  setSession(name:string,obj:any){
     localStorage.setItem(name,obj);
   }
 

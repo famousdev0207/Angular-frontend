@@ -1,6 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
-import { User } from '../../models/index';
+import { User } from '../models/index';
 import { UserService, SessionService } from '../services/index';
 
 @Component({
@@ -13,8 +13,8 @@ export class HeaderComponent implements OnInit {
     private subtitle:string = 'Windstorm';
     private currentUser: User;
     private users: User[] = [];
-    public isLogged: boolean = false;
-    private dataLastAcess: date;
+    public isLogged:boolean;
+    private dataLastAcess: any;
 
     constructor(
       private userService: UserService,
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
       this.loadAllUsers();
-      this.isLogged = this.sessionService.isLoggedIn();
+      this.isLogged = Boolean(this.sessionService.isLoggedIn());
       console.log("header Logado: "+this.isLogged);
     }
 
