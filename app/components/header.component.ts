@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
     private currentUser: User;
     private users: User[] = [];
     private isLogged: boolean = false;
+    private dataLastAcess: date;
 
     constructor(
       private userService: UserService,
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
     ) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.isLogged = this.sessionService.isLoggedIn();
+        this.dataLastAcess = new Date().toLocaleDateString(); 
         console.log(this.isLogged);
     }
 

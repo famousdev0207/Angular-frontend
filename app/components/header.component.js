@@ -20,6 +20,7 @@ var HeaderComponent = (function () {
         this.isLogged = false;
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.isLogged = this.sessionService.isLoggedIn();
+        this.dataLastAcess = new Date().toLocaleDateString();
         console.log(this.isLogged);
     }
     HeaderComponent.prototype.ngOnInit = function () {
