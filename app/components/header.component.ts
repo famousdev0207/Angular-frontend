@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
     private subtitle:string = 'Windstorm';
     private currentUser: User;
     private users: User[] = [];
-    private isLogged: boolean = false;
+    public isLogged: boolean = false;
     private dataLastAcess: date;
 
     constructor(
@@ -21,14 +21,13 @@ export class HeaderComponent implements OnInit {
       private sessionService:SessionService
     ) {
         this.currentUser = JSON.parse(this.sessionService.getSession('currentUser'));
-        this.isLogged = this.sessionService.isLoggedIn();
         this.dataLastAcess = new Date().toLocaleDateString();
-
-        console.log(this.isLogged);
     }
 
     ngOnInit() {
       this.loadAllUsers();
+      this.isLogged = this.sessionService.isLoggedIn();
+      console.log("header Logado: "+this.isLogged);
     }
 
     private loadAllUsers() {

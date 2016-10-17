@@ -19,12 +19,12 @@ var HeaderComponent = (function () {
         this.users = [];
         this.isLogged = false;
         this.currentUser = JSON.parse(this.sessionService.getSession('currentUser'));
-        this.isLogged = this.sessionService.isLoggedIn();
         this.dataLastAcess = new Date().toLocaleDateString();
-        console.log(this.isLogged);
     }
     HeaderComponent.prototype.ngOnInit = function () {
         this.loadAllUsers();
+        this.isLogged = this.sessionService.isLoggedIn();
+        console.log("header Logado: " + this.isLogged);
     };
     HeaderComponent.prototype.loadAllUsers = function () {
         var _this = this;
