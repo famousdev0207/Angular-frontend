@@ -14,14 +14,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SessionService = (function () {
     function SessionService() {
-        this._status = false;
         console.log("New SessionService");
     }
     SessionService.prototype.isLoggedIn = function () {
-        return this._status;
+        return this._status = false;
     };
-    SessionService.prototype.setInitSession = function () {
-        this._status = true;
+    SessionService.prototype.setInitSession = function (parm) {
+        this._status = parm;
     };
     SessionService = __decorate([
         core_1.Injectable(), 

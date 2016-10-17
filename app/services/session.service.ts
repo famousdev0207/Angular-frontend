@@ -8,15 +8,14 @@ export class SessionService {
   private _status:boolean;
 
   isLoggedIn() {
-    return this._status;
+    return this._status = false;
   }
 
-  setInitSession(){
-    this._status = true;
+  setInitSession(parm:boolean){
+    this._status = parm;
   }
 
   constructor () {
-    this._status = false;
     console.log("New SessionService");
   }
 }

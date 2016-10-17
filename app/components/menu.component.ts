@@ -4,6 +4,6 @@ import { Component, OnInit} from '@angular/core';
     selector: 'my-menu',
     templateUrl: './app/templates/menu.html'
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
 }

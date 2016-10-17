@@ -12,11 +12,12 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var index_1 = require('../../services/index');
 var LoginComponent = (function () {
-    function LoginComponent(router, authenticationService, alertService, userService) {
+    function LoginComponent(router, authenticationService, alertService, userService, sessionService) {
         this.router = router;
         this.authenticationService = authenticationService;
         this.alertService = alertService;
         this.userService = userService;
+        this.sessionService = sessionService;
         this.model = {};
         this.usuario = {};
         this.loading = false;
@@ -38,6 +39,7 @@ var LoginComponent = (function () {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(function (data) {
+            _this.sessionService.setInitSession(true);
             _this.router.navigate(['/']);
         }, function (error) {
             _this.alertService.error(error);
@@ -49,7 +51,7 @@ var LoginComponent = (function () {
             moduleId: module.id,
             templateUrl: '../../views/login.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, index_1.AuthenticationService, index_1.AlertService, index_1.UserService])
+        __metadata('design:paramtypes', [router_1.Router, index_1.AuthenticationService, index_1.AlertService, index_1.UserService, index_1.SessionService])
     ], LoginComponent);
     return LoginComponent;
 }());

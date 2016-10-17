@@ -1,8 +1,7 @@
-import { Component, OnInit} from '@angular/core';
-import { SessionService } from '../services/session.service';
+import { Component} from '@angular/core';
 
-import { User } from '../models/index';
-import { UserService } from '../services/index';
+import { User } from '../../models/index';
+import { UserService, SessionService } from '../services/index';
 
 @Component({
     selector: 'my-header',
@@ -10,30 +9,27 @@ import { UserService } from '../services/index';
 })
 
 export class HeaderComponent implements OnInit {
-    private sessionService: SessionService;
     private title:string = 'Tour of Heroes';
     private subtitle:string = 'Windstorm';
-    private isLogger = false;
-    currentUser: User;
-    users: User[] = [];
+    private currentUser: User;
+    private users: User[] = [];
+    private isLogged: boolean = false;
 
-    constructor(private userService: UserService) {
+    constructor(
+      private userService: UserService,
+      private sessionService:SessionService
+    ) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.isLogged = this.sessionService.isLoggedIn();
+        console.log(this.isLogged);
     }
 
-    this.sessionService = new SessionService();
-
-    if(this.sessionService.isLoggedIn()){
-      this.isLogger = true;
+    ngOnInit() {
       this.loadAllUsers();
-    }
-
-    /*ngOnInit() {
-        //this.loadAllUsers();
     }
 
     private loadAllUsers() {
         this.userService.getAll().subscribe(users => { this.users = users; });
-    }*/
+    }
 
 }

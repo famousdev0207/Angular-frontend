@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertService, AuthenticationService, UserService } from '../../services/index';
+import { AlertService, AuthenticationService, UserService, SessionService } from '../../services/index';
 
 @Component({
     moduleId: module.id,
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private alertService: AlertService,
-        private userService: UserService
+        private userService: UserService,
+        private sessionService: SessionService
     ) { this.register(); }
 
     ngOnInit() {
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
                 data => {
+                    this.sessionService.setInitSession(true);
                     this.router.navigate(['/']);
                 },
                 error => {

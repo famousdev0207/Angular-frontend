@@ -22,10 +22,6 @@ var HomeComponent = (function () {
     HomeComponent.prototype.ngOnInit = function () {
         this.loadAllUsers();
     };
-    HomeComponent.prototype.deleteUser = function (id) {
-        var _this = this;
-        this.userService.delete(id).subscribe(function () { _this.loadAllUsers(); });
-    };
     HomeComponent.prototype.loadAllUsers = function () {
         var _this = this;
         this.userService.getAll().subscribe(function (users) { _this.users = users; });

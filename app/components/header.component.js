@@ -9,30 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var session_service_1 = require('../services/session.service');
 var index_1 = require('../services/index');
 var HeaderComponent = (function () {
-    function HeaderComponent(userService) {
+    function HeaderComponent(userService, sessionService) {
         this.userService = userService;
+        this.sessionService = sessionService;
         this.title = 'Tour of Heroes';
         this.subtitle = 'Windstorm';
-        this.isLogger = false;
         this.users = [];
+        this.isLogged = false;
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.isLogged = this.sessionService.isLoggedIn();
+        console.log(this.isLogged);
     }
+    HeaderComponent.prototype.ngOnInit = function () {
+        this.loadAllUsers();
+    };
+    HeaderComponent.prototype.loadAllUsers = function () {
+        var _this = this;
+        this.userService.getAll().subscribe(function (users) { _this.users = users; });
+    };
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'my-header',
             templateUrl: './app/templates/header.html'
         }), 
-        __metadata('design:paramtypes', [index_1.UserService])
+        __metadata('design:paramtypes', [index_1.UserService, index_1.SessionService])
     ], HeaderComponent);
     return HeaderComponent;
 }());
 exports.HeaderComponent = HeaderComponent;
-this.sessionService = new session_service_1.SessionService();
-if (this.sessionService.isLoggedIn()) {
-    this.isLogger = true;
-    this.loadAllUsers();
-}
 //# sourceMappingURL=header.component.js.map

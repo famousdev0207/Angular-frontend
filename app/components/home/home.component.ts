@@ -23,10 +23,6 @@
          this.loadAllUsers();
      }
 
-     deleteUser(id) {
-         this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-     }
-
      private loadAllUsers() {
          this.userService.getAll().subscribe(users => { this.users = users; });
      }
