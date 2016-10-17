@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private alertService: AlertService,
-        private userService: UserService,
-        private sessionService: SessionService
+        private userService: UserService
     ) { this.register(); }
 
     ngOnInit() {
@@ -39,7 +38,6 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
                 data => {
-                    this.sessionService.setInitSession(true);
                     this.router.navigate(['/']);
                 },
                 error => {

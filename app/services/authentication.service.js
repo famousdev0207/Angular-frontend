@@ -11,28 +11,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
+var session_service_1 = require('./session.service');
 var AuthenticationService = (function () {
-    function AuthenticationService(http) {
+    function AuthenticationService(http, sessionService) {
         this.http = http;
+        this.sessionService = sessionService;
     }
     AuthenticationService.prototype.login = function (username, password) {
+        var _this = this;
         return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
             .map(function (response) {
             // login successful if there's a jwt token in the response
             var user = response.json();
             if (user && user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                _this.sessionService.setInitSession(true);
+                _this.sessionService.setSession('currentUser', JSON.stringify(user));
             }
         });
     };
     AuthenticationService.prototype.logout = function () {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        this.sessionService.removeSession('currentUser');
+        this.sessionService.setInitSession(false);
     };
     AuthenticationService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, session_service_1.SessionService])
     ], AuthenticationService);
     return AuthenticationService;
 }());

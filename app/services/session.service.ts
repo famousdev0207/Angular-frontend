@@ -5,17 +5,28 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class SessionService {
-  private _status:boolean;
+
+  constructor () {
+    console.log("New SessionService: "+this.isLoggedIn());
+  }
 
   isLoggedIn() {
-    return this._status = false;
+    return localStorage.getItem('initSession');
   }
 
   setInitSession(parm:boolean){
-    this._status = parm;
+    localStorage.setItem('initSession', parm);
   }
 
-  constructor () {
-    console.log("New SessionService");
+  setSession(name:string,obj:object){
+    localStorage.setItem(name,obj);
+  }
+
+  getSession(name:string){
+    return localStorage.getItem(name);
+  }
+
+  removeSession(name:string){
+    localStorage.removeItem(name);
   }
 }

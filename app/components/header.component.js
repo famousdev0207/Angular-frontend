@@ -18,7 +18,7 @@ var HeaderComponent = (function () {
         this.subtitle = 'Windstorm';
         this.users = [];
         this.isLogged = false;
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.currentUser = JSON.parse(this.sessionService.getSession('currentUser'));
         this.isLogged = this.sessionService.isLoggedIn();
         this.dataLastAcess = new Date().toLocaleDateString();
         console.log(this.isLogged);

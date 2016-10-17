@@ -9,15 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var index_1 = require('../services/index');
 var MenuComponent = (function () {
-    function MenuComponent() {
+    function MenuComponent(sessionService) {
+        this.sessionService = sessionService;
+        this.isLogged = false;
+        this.isLogged = this.sessionService.isLoggedIn();
+        console.log("Menu Session: " + this.isLogged);
     }
     MenuComponent = __decorate([
         core_1.Component({
             selector: 'my-menu',
             templateUrl: './app/templates/menu.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.SessionService])
     ], MenuComponent);
     return MenuComponent;
 }());

@@ -14,13 +14,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SessionService = (function () {
     function SessionService() {
-        console.log("New SessionService");
+        console.log("New SessionService: " + this.isLoggedIn());
     }
     SessionService.prototype.isLoggedIn = function () {
-        return this._status = false;
+        return localStorage.getItem('initSession');
     };
     SessionService.prototype.setInitSession = function (parm) {
-        this._status = parm;
+        localStorage.setItem('initSession', parm);
+    };
+    SessionService.prototype.setSession = function (name, obj) {
+        localStorage.setItem(name, obj);
+    };
+    SessionService.prototype.getSession = function (name) {
+        return localStorage.getItem(name);
+    };
+    SessionService.prototype.removeSession = function (name) {
+        localStorage.removeItem(name);
     };
     SessionService = __decorate([
         core_1.Injectable(), 
