@@ -13,9 +13,9 @@ var index_1 = require('../services/index');
 var MenuComponent = (function () {
     function MenuComponent(sessionService) {
         this.sessionService = sessionService;
-        this.isLogged = false;
-        this.isLogged = this.sessionService.isLoggedIn();
-        console.log("Menu Session: " + this.isLogged);
+        this.isLoggedMenu = false;
+        this.isLoggedMenu = this.sessionService.isLoggedIn();
+        console.log("Menu Session: " + this.isLoggedMenu);
     }
     MenuComponent = __decorate([
         core_1.Component({

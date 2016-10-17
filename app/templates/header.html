@@ -1,6 +1,6 @@
 <div id="top">
     <div class="container">
-        <div class="user-info text-right" *ngIf="currentUser">
+        <div class="user-info text-right" *ngIf="isLogged && currentUser">
             <i class="fa fa-user"></i>
             <span>{{currentUser.firstName.toUpperCase() + " " + currentUser.lastName.toUpperCase()}}</span>
             <span class="hidden-sm hidden-xs">

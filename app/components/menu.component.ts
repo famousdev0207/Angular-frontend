@@ -7,13 +7,13 @@ import { SessionService } from '../services/index';
     templateUrl: './app/templates/menu.html'
 })
 export class MenuComponent {
-  private isLogged: boolean = false;
+  public isLoggedMenu: boolean = false;
 
   constructor(
     private sessionService:SessionService
   ) {
-      this.isLogged = this.sessionService.isLoggedIn();
-      console.log("Menu Session: "+this.isLogged);
+      this.isLoggedMenu = this.sessionService.isLoggedIn();
+      console.log("Menu Session: "+this.isLoggedMenu);
   }
 
 }
