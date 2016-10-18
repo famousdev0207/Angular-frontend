@@ -17,12 +17,16 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService,
         private alertService: AlertService,
-        private userService: UserService
-    ) { this.register(); }
+        private userService: UserService,
+        private sessionService: SessionService
+    ) {
+        this.register();
+    }
 
     ngOnInit() {
         // reset login status
         this.authenticationService.logout();
+
     }
 
     register() {

@@ -12,7 +12,7 @@ export class MenuComponent {
   constructor(
     private sessionService:SessionService
   ) {
-      this.isLoggedMenu = Boolean(this.sessionService.isLoggedIn());
+      this.isLoggedMenu = this.sessionService.isLoggedIn();
       console.log("Menu Session: "+this.isLoggedMenu);
   }
 

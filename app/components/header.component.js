@@ -17,12 +17,13 @@ var HeaderComponent = (function () {
         this.title = 'Tour of Heroes';
         this.subtitle = 'Windstorm';
         this.users = [];
+        this.isLogged = false;
         this.currentUser = JSON.parse(this.sessionService.getSession('currentUser'));
         this.dataLastAcess = new Date().toLocaleDateString();
     }
     HeaderComponent.prototype.ngOnInit = function () {
         this.loadAllUsers();
-        this.isLogged = Boolean(this.sessionService.isLoggedIn());
+        this.isLogged = this.sessionService.isLoggedIn();
         console.log("header Logado: " + this.isLogged);
     };
     HeaderComponent.prototype.loadAllUsers = function () {

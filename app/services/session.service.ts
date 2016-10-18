@@ -11,11 +11,11 @@ export class SessionService {
   }
 
   isLoggedIn() {
-    return localStorage.getItem('initSession');
+    return JSON.parse(localStorage.getItem('initSession'));
   }
 
-  setInitSession(parm){
-    localStorage.setItem('initSession', parm);
+  setInitSession(parm:boolean){
+    localStorage.setItem('initSession', JSON.parse(parm.toString()));
   }
 
   setSession(name:string,obj:any){

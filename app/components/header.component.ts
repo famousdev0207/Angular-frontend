@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
     private subtitle:string = 'Windstorm';
     private currentUser: User;
     private users: User[] = [];
-    public isLogged:boolean;
+    public isLogged:boolean = false;
     private dataLastAcess: any;
 
     constructor(
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
       this.loadAllUsers();
-      this.isLogged = Boolean(this.sessionService.isLoggedIn());
+      this.isLogged = this.sessionService.isLoggedIn();
       console.log("header Logado: "+this.isLogged);
     }
 

@@ -17,10 +17,10 @@ var SessionService = (function () {
         console.log("New SessionService: " + this.isLoggedIn());
     }
     SessionService.prototype.isLoggedIn = function () {
-        return localStorage.getItem('initSession');
+        return JSON.parse(localStorage.getItem('initSession'));
     };
     SessionService.prototype.setInitSession = function (parm) {
-        localStorage.setItem('initSession', parm);
+        localStorage.setItem('initSession', JSON.parse(parm.toString()));
     };
     SessionService.prototype.setSession = function (name, obj) {
         localStorage.setItem(name, obj);
